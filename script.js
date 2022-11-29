@@ -9,11 +9,8 @@ if(width < 769) {
 } else {
     shareOverlay.classList.add('hidden-desktop');
     shareIcon.addEventListener('click', toggleDesktop);
+    shareIcon.addEventListener('blur', toggleBlur)
 }
-
-shareIcon.addEventListener('blur', () => {
-    shareOverlay.classList.add('hidden-desktop');
-})
 
 
 window.addEventListener('resize', () => {
@@ -23,12 +20,14 @@ window.addEventListener('resize', () => {
         shareOverlay.classList.add('hidden-mobile');
         shareIcon.addEventListener('click', toggleMobile);
         shareIcon.removeEventListener('click', toggleDesktop);
+        shareIcon.removeEventListener('blur', toggleBlur)
     } else {
         shareOverlay.classList.remove('hidden-mobile');
         shareOverlay.classList.add('hidden-desktop');
         shareIcon.removeEventListener('click', toggleMobile);
         shareIcon.addEventListener('click', toggleDesktop);
         shareIcon.blur();
+        shareIcon.addEventListener('blur', toggleBlur)
     }
 })
 
@@ -41,6 +40,11 @@ function toggleDesktop() {
     if(isFocused() && shareOverlay.classList.contains('hidden-desktop')) {
         shareIcon.blur();
     }
+}
+
+function toggleBlur() {
+    shareOverlay.classList.add('hidden-desktop');
+    shareIcon.blur();
 }
 
 function isFocused() {

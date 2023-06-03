@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/jmcconde/article-preview-component-master]
+- Live Site URL: [https://legendary-choux-95740b.netlify.app]
 
 ## My process
 
